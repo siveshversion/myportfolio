@@ -1,0 +1,155 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+html,
+body,
+[class*="css"] {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0e1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #262730;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00d4ff;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    /* very transparent white */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.1);
+    /* Glow effect on hover */
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+/* Section Headers */
+.section-header {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #00d4ff;
+    /* Neon Cyan */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.sub-header {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Skill Pills */
+.skill-pill {
+    display: inline-block;
+    background: linear-gradient(135deg, #00d4ff 0%, #0056b3 100%);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.skill-pill:hover {
+    transform: scale(1.05);
+}
+
+/* Timeline */
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+    border-left: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #00d4ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+.role-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.company-name {
+    font-size: 1.1rem;
+    color: #00d4ff;
+    margin: 5px 0;
+}
+
+.duration {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Profile Image Glow */
+.profile-img-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.profile-img-container img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Links */
+a {
+    color: #00d4ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #80e8ff;
+    text-decoration: underline;
+}
