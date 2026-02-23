@@ -206,7 +206,45 @@ def contact_section():
             message = st.text_area("Message")
             
             if st.form_submit_button("Send Message"):
-                st.success("Message sent! (Demo)")
+                if not name or not email or not message:
+                    st.warning("Please fill out all fields.")
+                else:
+                    import smtplib
+                    from email.mime.text import MIMEText
+                    from email.mime.multipart import MIMEMultipart
+                    
+                    try:
+                        sender_email = st.secrets.get("EMAIL_USER")
+                        sender_password = st.secrets.get("EMAIL_PASS")
+                    except Exception:
+                        sender_email = None
+                        sender_password = None
+                        
+                    if not sender_email or not sender_password:
+                        st.error("Email secrets (`EMAIL_USER`, `EMAIL_PASS`) are not configured.")
+                        st.info("To enable emails, create `.streamlit/secrets.toml` with your Gmail address and App Password.")
+                    else:
+                        try:
+                            receiver_email = pd.PORTFOLIO_DATA.get('email', sender_email)
+                            
+                            msg = MIMEMultipart()
+                            msg['From'] = sender_email
+                            msg['To'] = receiver_email
+                            msg['Subject'] = f"Portfolio Contact Form: New Message from {name}"
+                            
+                            body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+                            msg.attach(MIMEText(body, 'plain'))
+                            
+                            # Connect to SMTP server (using Gmail as default)
+                            server = smtplib.SMTP('smtp.gmail.com', 587)
+                            server.starttls()
+                            server.login(sender_email, sender_password)
+                            server.sendmail(sender_email, receiver_email, msg.as_string())
+                            server.quit()
+                            
+                            st.success("Message sent successfully! I will get back to you soon.")
+                        except Exception as e:
+                            st.error(f"Failed to send email: {e}")
 
 # Routing
 if st.session_state.section == "Home":
