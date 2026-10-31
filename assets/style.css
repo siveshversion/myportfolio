@@ -46,6 +46,109 @@ body,
     border-color: rgba(0, 212, 255, 0.3);
 }
 
+.summary-card,
+.summary-card:hover {
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.summary-card-title {
+    font-size: 1.17em;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.summary-bullets {
+    margin: 0;
+    padding-left: 1.25rem;
+    text-align: left;
+}
+
+.summary-bullets li + li {
+    margin-top: 0.35rem;
+}
+
+.section-nav-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    color: #aaaaaa;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.section-nav-progress strong {
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+.st-key-section_nav_top button,
+.st-key-section_nav_bottom button {
+    width: 64px;
+    height: 64px;
+    min-height: 64px;
+    padding: 0;
+    border: 1px solid rgba(0, 212, 255, 0.45);
+    border-radius: 50%;
+    background: linear-gradient(145deg, rgba(0, 212, 255, 0.24), rgba(0, 86, 179, 0.45));
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(0, 212, 255, 0.18);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    touch-action: manipulation;
+}
+
+.st-key-section_nav_top button p,
+.st-key-section_nav_bottom button p {
+    margin: 0;
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.st-key-section_nav_top button:hover,
+.st-key-section_nav_bottom button:hover {
+    transform: scale(1.08);
+    border-color: #00d4ff;
+    background: linear-gradient(145deg, rgba(0, 212, 255, 0.42), rgba(0, 86, 179, 0.7));
+    box-shadow: 0 6px 22px rgba(0, 212, 255, 0.32);
+    color: #ffffff;
+}
+
+.st-key-section_nav_top button:active,
+.st-key-section_nav_bottom button:active {
+    transform: scale(0.94);
+}
+
+.st-key-section_nav_top button:disabled,
+.st-key-section_nav_bottom button:disabled {
+    opacity: 0.35;
+    box-shadow: none;
+}
+
+@media (max-width: 640px) {
+    .st-key-section_nav_top button,
+    .st-key-section_nav_bottom button {
+        width: 56px;
+        height: 56px;
+        min-height: 56px;
+        font-size: 2.4rem;
+    }
+
+    .st-key-section_nav_top button p,
+    .st-key-section_nav_bottom button p {
+        font-size: 2rem;
+    }
+
+    .section-nav-progress strong {
+        font-size: 0.9rem;
+    }
+}
+
 /* Section Headers */
 .section-header {
     font-size: 2.2rem;
